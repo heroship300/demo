@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+	  <link rel="stylesheet" type="text/css" href="{% static '/styles/register.css' %}">
+
+    
+    <title>Registeration</title>
+</head>
+<body>
+    <div class="main">
+        {% comment %} <form action="register" method="post">
+
+            {% csrf_token %}
+
+            <input type="text" name="first_name" placeholder="Họ"><br>   
+            <input type="text" name="last_name" placeholder="Tên"><br>
+            <input type="text" name="username" placeholder="Tên đăng nhập"><br>
+            <input type="email" name="email" placeholder="email"><br>
+            <input type="password" name="password1" placeholder="Mật khẩu"><br>
+            <input type="password" name="password2" placeholder="Xác nhận mật khẩu"><br>
+            <input type="Submit">
+        </form> {% endcomment %}
+
+
+                 <!--  Tiêu đề trên cùng -->
+        <form action="register" method="POST" class="form" id="form-1">
+          <h3 class="heading">Thành viên đăng ký</h3>
+          
+        <!-- Đăng nhập tên -->
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="first_name" class="form-label">Họ</label>
+            <input id="first_name" name="first_name" type="text" placeholder="VD: Nguyễn " class="form-control">
+            
+          </div>Z
+
+          <div class="form-group">
+            <label for="last_name" class="form-label">Tên</label>
+            <input id="last_name" name="last_name" type="text" placeholder="VD: Văn A" class="form-control">
+            
+          </div>
+
+          <div class="form-group">
+            <label for="username" class="form-label">Tên đăng nhập</label>
+            <input id="username" name="username" type="text" placeholder="VD: abcxyz123" class="form-control">
+            
+          </div>
+  
+          <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <input id="email" name="email" type="email" placeholder="VD: email@domain.com" class="form-control">
+            
+          </div>
+  
+          <div class="form-group">
+            <label for="password1" class="form-label">Mật khẩu</label>
+            <input id="password1" name="password1" type="password" placeholder="Nhập mật khẩu" class="form-control">
+            
+          </div>
+  
+          <div class="form-group">
+            <label for="password2" class="form-label">Nhập lại mật khẩu</label>
+            <input id="password2" name="password2" placeholder="Nhập lại mật khẩu" type="password" class="form-control">
+            
+          </div>
+  
+          <button class="form-submit" type="Submit">Đăng ký</button>
+
+          <div class="form-group" style="padding: 20px">
+            {% for message in messages %}
+            <h3> {{message}} </h3>
+            {% endfor %}
+          </div>
+        </form>
+
+    </div>
+    
+</body>
+</html>

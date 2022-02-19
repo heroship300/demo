@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+	  <link rel="stylesheet" type="text/css" href="{% static '/styles/register.css' %}">
+
+    
+    <title>Login-page</title>
+</head>
+<body>
+    <div class="main">
+        <form action="login" method="post" class="form" id="form-2">
+        <h3 class="heading">Đăng nhập</h3>
+
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="username" class="form-label">Tên đăng nhập</label>
+          <input id="username" name="username" type="text" placeholder="VD: abcxyz123" class="form-control">
+          <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="form-label">Mật khẩu</label>
+          <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control">
+          <span class="form-message"></span>
+        </div>
+
+        <button class="form-submit">Đăng nhập</button>
+
+        <div class="form-group" style="padding: 20px">
+            {% for message in messages %}
+            <h3> {{message}} </h3>
+            {% endfor %}
+        </div>
+      </form>
+
+    </div>
+    
+</body>
+</html>
